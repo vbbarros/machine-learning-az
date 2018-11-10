@@ -1,18 +1,26 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Oct 31 09:30:39 2018
+#Data Processing
 
-@author: vbbarros
-"""
+#Importing Libraries
 
+#Biblioteca para matemática
 import numpy as np
+#Biblioteca para plotar gráficos
 import matplotlib.pyplot as plt
+#Biblioteca para importar e gerenciar conjunto de dados
 import pandas as pd
 
+
 dataset = pd.read_csv('Data.csv')
+
+#Primeiro ":" pega todas as linhas, enquanto o segundo pega todas as colunas com exceção da última
 X = dataset.iloc[:, :-1].values
+#converte o valor de X para dataframe novamente, para que mostre no explorador de variáveis
+dfx = pd.DataFrame(X)
 Y = dataset.iloc[:, 3].values
 
+#Para cuidar dos dados que faltam no dataSet
+#Esta biblioteca serve para o preprocessamento dos data sets
+#ctrl+i abre o inspecionar da classe 
 """from sklearn.preprocessing import Imputer
 imputer = Imputer(missing_values = 'NaN', strategy = 'mean', axis = 0)
 imputer = imputer.fit(X[:, 1:3])
